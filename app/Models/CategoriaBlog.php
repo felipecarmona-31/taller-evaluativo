@@ -12,7 +12,9 @@ class CategoriaBlog extends Model
         'nombre',
         'descripcion',
     ];
-    public function articulos(){
-        return $this->hasMany( Articulo::class);
+
+    public function articulos()
+    {
+        return $this->hasMany(Articulo::class);
     }
 }

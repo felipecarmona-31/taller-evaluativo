@@ -4,21 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasMany; 
 
 class Categoria extends Model
 {
-    use HasFactory;
+     use HasFactory;
 
-protected  $filable = [
-    'nombre', 
+protected $fillable = [
+    'nombre',
     'descripcion',
-
 ];
 
 
- public function productos(): HasMany
+public function productos()
 {
-    return $this->hasMany( Producto::class);
+    return $this->hasMany(Producto::class);
 }
 }
