@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('contenido');
-            $table->string('imagen-destacada')->nullable();
+            $table->string('imagen_destacada')->nullable();
             $table->string('autor');
             $table->foreignId('categoria_blog_id')->constrained('categoria_blogs')->onDelete('cascade');
             $table->date('fecha_publicacion')->nullable();
             $table->timestamps();
-
         });
     }
 
