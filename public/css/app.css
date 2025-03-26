@@ -189,3 +189,105 @@ button:hover {
     color: #721c24;
     font-size: 1rem;
 }
+
+
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+/* Estilo para la tabla */
+table.categorias {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table.categorias th, table.categorias td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table.categorias th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+table.categorias td input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+table.categorias td input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Botones */
+button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="button"] {
+    background-color: #e74c3c;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+button[type="button"]:hover {
+    background-color: #c0392b;
+}
+
+/* Estilos para los errores */
+.errors {
+    margin: 20px;
+    padding: 15px;
+    background-color: #f8d7da;
+    border-radius: 5px;
+    color: #721c24;
+}
+
+.errors p {
+    margin: 0;
+}
+
+/* Diseño y espaciado */
+form {
+    margin: 0;
+    padding: 0;
+}
+
+table.categorias tr {
+    background-color: #f9f9f9;
+}
+
+table.categorias tr:hover {
+    background-color: #f1f1f1;
+}
+
+
