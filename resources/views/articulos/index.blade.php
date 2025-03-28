@@ -4,31 +4,31 @@
     
 @section('content')
 <div class="articulos">
-    @forelse ($articulos as $articulo )
+    @forelse ($articulos as $articulo)
         <article class="articulo">
             <h2>{{ $articulo->titulo }}</h2>
             <p>{{ $articulo->categoriaBlog->nombre }}</p>
             <div class="detalles">
-                <a href="{{ route('articulo.edit', $articulo) }}">
-                <button title="Editar articulo">🖋️</button>
-                </a>
-                <form action="{{ route('articulo.delete', $articulo) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button title="Eliminar articulo">🚮</button>
-                </form>
+                <a href="{{route('articulo.show',$articulo)}}">Leer</a>
+                <div class="actions">
+                    <a href="{{route('articulo.edit',$articulo)}}">
+                        <button title="{{__('messages.editArticle')}}">🖋️</button>
+                    </a>
+                    <form action="{{route('articulo.delete',$articulo)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button title="{{__('messages.deleteArticle')}}">🗑️</button>
+                    </form>
+                </div>
             </div>
-        </div>       
-    </article>
+        </article>
     @empty
-        <li>No hay articulos para mostrar</li>
+        <li>{{__('messages.thereIsNotArticleToShow')}}</li>
     @endforelse
-    {{ $articulos->links('pagination::bootstrap-4') }}
+    {{$articulos->links('pagination::bootstrap-4')}}
 </div>
-
 <br>
 <div class="nuevo-articulo">
-    <a href="{{ route('articulo.create') }}">Añadir un nuevo articulo</a>
+    <a href="{{route('articulo.create')}}">{{__('messages.addArticle')}}</a>
 </div>
-
 @endsection

@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoriaRequest extends FormRequest
+class CategoriaBlogRequest extends FormRequest
 {
     public function authorize()
     {

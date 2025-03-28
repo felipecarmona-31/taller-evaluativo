@@ -15,7 +15,7 @@ class ArticuloController extends Controller
      */
     public function index()
     {
-        $articulos = Articulo::latest()->paginate(3);
+        $articulos= Articulo::latest()->paginate(3);
         return view('articulos.index', compact('articulos'));
     }
 
@@ -24,9 +24,8 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        $categoriasBlog = CategoriaBlog::latest()->get();
-        return view('articulos.create', compact('categoriasBlog'));
-    }
+        $categoriasBlog= CategoriaBlog::latest()->get();
+        return view('articulos.create', compact('categoriasBlog'));}
 
     /**
      * Store a newly created resource in storage.
@@ -50,7 +49,7 @@ class ArticuloController extends Controller
      */
     public function edit(Articulo $articulo)
     {
-        $categoriasBlog = CategoriaBlog::latest()->get();
+        $categoriasBlog= CategoriaBlog::latest()->get();
         return view('articulos.edit', compact('articulo', 'categoriasBlog'));
     }
 
@@ -68,6 +67,7 @@ class ArticuloController extends Controller
      */
     public function destroy(Articulo $articulo)
     {
-        //
+        $articulo->delete();
+        return redirect()->route('articulo.index');
     }
 }

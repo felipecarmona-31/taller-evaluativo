@@ -9,24 +9,24 @@
         <thead>
             <tr>
                 <th>{{__('messages.name')}}</th>
-                <th>{{__('messages.description')}}</th>
-                <th>{{__('messages.actions')}}</th>
+            <th>{{__('messages.description')}}</th>
+            <th>{{__('messages.actions')}}</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($categorias as $categoria)
+            @foreach($categoriaBlogs as $categoriaBlog)
             <tr>
-                <td>{{$categoria->Nombre}}</td>
-                <td>{{$categoria->descripcion}}</td>
+                <td>{{$categoriaBlog->nombre}}</td>
+                <td>{{$categoriaBlog->descripcion}}</td>
                 <td>
-                    <a href="{{route('categoria.edit',$categoria)}}">
-                        <button title="{{__('messages.editCategory')}}">🖋️</button>
+                    <a href="{{route('categoria.edit',$categoriaBlog)}}">
+                        <button title="{{__('messages.saveChanges')}}">🖋️</button>
                     </a>
-                    <form action="{{route('categoria.delete',$categoria)}}" method="POST">
+                    <form action="{{route('categoria.delete',$categoriaBlog)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button title="{{__('messages.deleteCategory')}}">🗑️</button>
-                    </form>6
+                        <button title="{{__('messages.deleteChanges')}}">🗑️</button>
+                    </form>
                 </td>
             </tr>
             @endforeach

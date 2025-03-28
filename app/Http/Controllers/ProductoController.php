@@ -14,12 +14,13 @@ class ProductoController extends Controller
      */
     public function index(Request $request)
     {
-        $categorias = Categoria::all();
 
-        $productos = Producto::when($request->categoria, function ($query, $categoriaId){
-            return $query->where('categoria_id', $categoriaId);
+        $categorias=Categoria::all();
+        
+        $productos = Producto::when($request->categoria,function($query,$categoriaId){
+            return $query->where('categoria_id',$categoriaId);
         })->get();
-        return view('productos.index',compact('productos', 'categorias'));
+        return view('productos.index',compact('productos','categorias'));
     }
 
     /**
@@ -34,9 +35,9 @@ class ProductoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProductoRequest  $request)
+    public function store(ProductoRequest $request)
     {
-        Producto::create($request->validated());
+        Producto::create($request ->validated());
         return redirect()->route('producto.index');
     }
 
@@ -45,7 +46,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+        return view('productos.show',compact('producto'));
     }
 
     /**
@@ -53,15 +54,17 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        $categorias= Categoria::latest()->get();
+        return view('productos.edit',compact('producto','categorias'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Producto $producto)
+    public function update(ProductoRequest $request, Producto $producto)
     {
-        //
+        $producto->update($request->validated());
+        return redirect()->route('producto.show',$producto);
     }
 
     /**
