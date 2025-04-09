@@ -39,6 +39,9 @@ return[
     'userName'=>'Nombre de usuario',
     'email'=>'Correo electronico',
     'comentContent'=>'Contenido del comentario',
+    'Login' => 'Inicar sesion',
+    'Register' => 'Registrarse',
+    'Logout' => 'Cerrar sesion',
 
 
 ];
